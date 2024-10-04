@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.core.config import settings
+from app.routers import summary
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -11,6 +12,9 @@ app = FastAPI(
         "url": "https://github.com/migue0418",
     },
 )
+
+# Incluir los routers
+app.include_router(summary.router)
 
 
 @app.get("/")
