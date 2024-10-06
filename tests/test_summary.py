@@ -16,6 +16,8 @@ def test_generate_summary():
     tenía el sobrenombre de «Quijada», o «Quesada», que en esto hay alguna diferencia en los autores que deste
     caso escriben, aunque por conjeturas verisímilesII se deja entender que se llamaba «Quijana»III. Pero esto
     importa poco a nuestro cuento: basta que en la narración dél no se salga un punto de la verdad."""
+
     response = client.post("/summary/", json={"text": text})
+
     assert response.status_code == 200
     assert "summary" in response.json()

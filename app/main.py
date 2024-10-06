@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.config import settings
-from app.routers import summary
+from app.routers import gtp_text
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -14,7 +14,7 @@ app = FastAPI(
 )
 
 # Incluir los routers
-app.include_router(summary.router)
+app.include_router(gtp_text.router)
 
 
 @app.get("/")
